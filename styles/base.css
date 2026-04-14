@@ -1,0 +1,40 @@
+:root {
+    --bg: #050a0f;
+    --surface: #0b1520;
+    --surface2: #0f1e2e;
+    --card: #09131b;
+    --card-hover: #0c1824;
+    --card-gradient: linear-gradient(155deg, #09131b 0%, #0c1824 100%);
+    --card-gradient-hover: linear-gradient(155deg, #0c1824 0%, #102031 100%);
+    --border: rgba(0, 200, 180, 0.12);
+    --card-border: rgba(0, 200, 180, 0.14);
+    --teal: #00c8b4;
+    --teal-dark: #00a392;
+    --teal-dim: rgba(0, 200, 180, 0.15);
+    --teal-glow: rgba(0, 200, 180, 0.35);
+    --amber: #f5a623;
+    --amber-dim: rgba(245, 166, 35, 0.12);
+    --text: #e8f0f7;
+    --text-muted: #6b8ba4;
+    --text-dim: #3a5570;
+    --font-display: "Syne", sans-serif;
+    --font-mono: "Space Mono", monospace;
+    --font-body: "DM Sans", sans-serif;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+}
