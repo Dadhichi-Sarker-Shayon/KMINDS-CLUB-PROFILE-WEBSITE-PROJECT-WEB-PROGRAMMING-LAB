@@ -1,0 +1,183 @@
+/* ═══ COURSES — Synaptic Cards with Rotating Conic Borders ═══ */
+.marquee-wrapper {
+    width: 100%;
+    overflow: visible;
+    animation: scroll 40s linear infinite;
+}
+
+.courses-grid {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    padding: 2rem 0;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+/* Card wrapper for animated border */
+.course-card {
+    position: relative;
+    flex: 0 0 300px;
+    height: 340px;
+    border-radius: var(--radius-lg);
+    padding: 2px;
+    background: conic-gradient(from var(--border-angle, 0deg), transparent 30%, var(--card-accent, var(--cyan)) 50%, transparent 70%);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    opacity: 0.75;
+    animation: borderSpin 4s linear infinite paused;
+}
+
+@property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes borderSpin {
+    to { --border-angle: 360deg; }
+}
+
+.course-card:hover {
+    animation-play-state: running;
+    opacity: 1;
+    transform: translateY(-12px) scale(1.05);
+    z-index: 100;
+    filter: none;
+}
+
+/* Inner card content */
+.course-card-inner {
+    background: var(--bg-deep);
+    border-radius: calc(var(--radius-lg) - 2px);
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--card-accent, var(--cyan)) 8%, transparent), transparent 60%);
+    pointer-events: none;
+}
+
+.course-card-inner > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card accent colors */
+.course-card[data-num="01"] { --card-accent: var(--cyan); }
+.course-card[data-num="02"] { --card-accent: var(--purple); }
+.course-card[data-num="03"] { --card-accent: var(--magenta); }
+.course-card[data-num="04"] { --card-accent: var(--neon); }
+.course-card[data-num="05"] { --card-accent: var(--amber); }
+
+/* Number badge */
+.course-card::after {
+    content: attr(data-num);
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--card-accent, var(--cyan));
+    opacity: 0.15;
+    line-height: 1;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.course-card:hover::after {
+    opacity: 0.4;
+    transform: scale(1.15);
+}
+
+.course-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.course-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--card-accent, var(--cyan));
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.course-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.level-item {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.4;
+}
+
+.level-item::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--card-accent, var(--cyan));
+    font-weight: 700;
+}
+
+.course-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+}
+
+.topic-chip {
+    padding: 0.3rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+}
+
+.course-card:hover .topic-chip {
+    border-color: color-mix(in srgb, var(--card-accent, var(--cyan)) 30%, transparent);
+    color: var(--text);
+}
+
+/* Marquee hover effects */
+.courses-grid:hover .course-card {
+    opacity: 0.35;
+    transform: scale(0.88);
+    filter: blur(1.5px);
+}
+
+.courses-grid:hover .course-card:hover {
+    opacity: 1 !important;
+    transform: translateY(-12px) scale(1.05) !important;
+    filter: none !important;
+    z-index: 100 !important;
+}

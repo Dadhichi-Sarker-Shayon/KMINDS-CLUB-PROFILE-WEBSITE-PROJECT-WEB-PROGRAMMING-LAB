@@ -1,0 +1,134 @@
+#about {
+    position: relative;
+}
+
+#about .container {
+    max-width: 2000px;
+}
+
+.about-text p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 2000px;
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2.5rem;
+}
+
+.tag {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.55rem 1.2rem;
+    border-radius: 50px;
+    position: relative;
+    color: var(--text);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: default;
+}
+
+/* Each tag gets a unique accent glow */
+.tag:nth-child(1) {
+    --tag-color: var(--cyan);
+    animation-delay: 0.1s !important;
+}
+
+.tag:nth-child(2) {
+    --tag-color: var(--purple);
+    animation-delay: 0.18s !important;
+}
+
+.tag:nth-child(3) {
+    --tag-color: var(--magenta);
+    animation-delay: 0.26s !important;
+}
+
+.tag:nth-child(4) {
+    --tag-color: var(--neon);
+    animation-delay: 0.34s !important;
+}
+
+.tag:nth-child(5) {
+    --tag-color: var(--amber);
+    animation-delay: 0.42s !important;
+}
+
+.tag:nth-child(6) {
+    --tag-color: var(--cyan);
+    animation-delay: 0.5s !important;
+}
+
+.tag:nth-child(7) {
+    --tag-color: var(--purple);
+    animation-delay: 0.58s !important;
+}
+
+.tag:nth-child(8) {
+    --tag-color: var(--magenta);
+    animation-delay: 0.66s !important;
+}
+
+.tag:hover {
+    border-color: var(--tag-color);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--tag-color) 25%, transparent);
+    transform: translateY(-4px);
+    color: #fff;
+}
+
+/* Unique Animation: Orbital float-in — tags drift in from scattered positions */
+#about .reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    filter: blur(8px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#about .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+#about .reveal.active .tag {
+    animation: orbitalFloat 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+
+@keyframes orbitalFloat {
+    0% {
+        opacity: 0;
+        transform: translate(calc(var(--ox, 30px)), calc(var(--oy, -20px))) scale(0.5) rotate(calc(var(--or, 15deg)));
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+}
+
+.tag:nth-child(odd) {
+    --ox: -40px;
+    --oy: 25px;
+    --or: -20deg;
+}
+
+.tag:nth-child(even) {
+    --ox: 35px;
+    --oy: -30px;
+    --or: 15deg;
+}
+
+.tag:nth-child(3n) {
+    --ox: 50px;
+    --oy: 10px;
+    --or: 25deg;
+}

@@ -1,0 +1,208 @@
+/* ═══ MODERATORS — Command Console Cards ═══ */
+.moderators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.mod-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: linear-gradient(160deg, rgba(12, 12, 30, 0.85), rgba(6, 6, 14, 0.95));
+    color: var(--text);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+}
+
+/* ── Terminal top bar ── */
+.mod-card::before {
+    content: "⬤  ⬤  ⬤   MODERATOR://PROFILE";
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.7rem 1.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: rgba(0, 212, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+}
+
+/* ── Card inner layout ── */
+.mod-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.mod-card .mod-avatar,
+.mod-card .mod-info {
+    z-index: 2;
+}
+
+/* ── Content area: horizontal layout ── */
+.mod-card {
+    /* Use a nested flex for the content below the bar */
+}
+
+.mod-avatar {
+    width: 76px;
+    height: 76px;
+    background: transparent;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: none;
+    margin: 2rem 0 0 2rem;
+    position: relative;
+    border: 2px solid rgba(0, 212, 255, 0.25);
+}
+
+/* ── Animated ring around avatar ── */
+.mod-avatar::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px dashed rgba(123, 47, 247, 0.25);
+    animation: modRingSpin 12s linear infinite;
+}
+@keyframes modRingSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Glow dot on avatar ── */
+.mod-avatar::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--neon);
+    border: 2px solid var(--bg-void);
+    box-shadow: 0 0 8px var(--neon), 0 0 20px rgba(0, 255, 136, 0.3);
+    animation: modStatusPulse 2s ease-in-out infinite;
+}
+@keyframes modStatusPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.mod-info {
+    padding: 1.5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mod-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.15rem;
+    line-height: 1.2;
+}
+
+.mod-info p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: var(--font-body);
+    padding-left: 1rem;
+    position: relative;
+}
+
+/* ── Prefix indicator for each info line ── */
+.mod-info p::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+/* ── Bottom data-line ── */
+.mod-card::after {
+    content: "STATUS: ACTIVE  ·  CLEARANCE: FULL";
+    display: block;
+    width: 100%;
+    padding: 0.6rem 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neon);
+    background: rgba(0, 255, 136, 0.03);
+    border-top: 1px solid rgba(0, 255, 136, 0.08);
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+/* ── Background glow effect ── */
+.mod-card:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(0, 212, 255, 0.06),
+        inset 0 1px 0 rgba(0, 212, 255, 0.1);
+    transform: translateY(-6px);
+}
+.mod-card:hover::after {
+    opacity: 1;
+    color: var(--neon);
+}
+
+.mod-card:hover .mod-avatar {
+    border-color: var(--cyan);
+    box-shadow: 0 0 25px var(--cyan-glow);
+}
+
+/* ── Staggered reveal ── */
+#moderators .reveal.active .mod-card {
+    animation: modConsoleIn 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+#moderators .reveal.active .mod-card:nth-child(2) { animation-delay: 0.15s; }
+
+@keyframes modConsoleIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .moderators-grid {
+        grid-template-columns: 1fr;
+    }
+    .mod-avatar {
+        margin: 1.5rem 0 0 1.5rem;
+    }
+    .mod-info {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+}

@@ -1,0 +1,211 @@
+/* ═══ TEAM — Neural ID Badge Cards ═══ */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(520px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+#team .container {
+    max-width: 1900px;
+    padding: 0 2.5rem;
+}
+
+.team-card {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    background: transparent;
+    color: var(--text);
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border: none;
+    overflow: visible;
+    min-height: 160px;
+    width: 100%;
+}
+
+/* ── The main card body with clipped corner ── */
+.team-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(12, 12, 30, 0.8) 0%, rgba(6, 6, 14, 0.95) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+/* ── Corner cut accent line ── */
+.team-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 58px;
+    height: 58px;
+    border: none;
+    z-index: 1;
+    background: linear-gradient(225deg, var(--cyan) 0%, transparent 60%);
+    opacity: 0.15;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    transition: opacity 0.5s ease;
+}
+
+/* ── Left accent strip (avatar repurposed) ── */
+.team-card .team-avatar {
+    position: relative;
+    width: 6px;
+    height: auto;
+    min-height: 100%;
+    background: linear-gradient(180deg, var(--cyan), var(--purple));
+    color: transparent;
+    border-radius: 0;
+    display: block;
+    font-size: 0;
+    margin: 0;
+    border: none;
+    box-shadow: 0 0 20px var(--cyan-glow);
+    flex-shrink: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* ── Animated pulse running down the strip ── */
+.team-card .team-avatar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: #fff;
+    border-radius: 2px;
+    opacity: 0;
+    animation: teamStripPulse 3s ease-in-out infinite;
+}
+
+@keyframes teamStripPulse {
+    0% {
+        top: -30px;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    85% {
+        opacity: 0.9;
+    }
+
+    100% {
+        top: calc(100% + 30px);
+        opacity: 0;
+    }
+}
+
+/* ── Content wrapper ── */
+.team-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.team-card .team-name {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.35rem;
+    padding: 2rem 2.5rem 0 2.5rem;
+    line-height: 1.2;
+}
+
+.team-role {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--cyan);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    padding: 0 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.team-role::before {
+    content: "▸ ";
+    color: var(--purple);
+}
+
+.team-dept {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    padding: 0 2.5rem 2rem;
+    font-family: var(--font-body);
+}
+
+/* ── Hover effects ── */
+.team-card:hover::before {
+    border-color: rgba(0, 212, 255, 0.2);
+    background: linear-gradient(135deg, rgba(12, 12, 30, 0.9) 0%, rgba(6, 6, 14, 0.98) 100%);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        inset 0 0 60px rgba(0, 212, 255, 0.03);
+}
+
+.team-card:hover::after {
+    opacity: 0.5;
+}
+
+.team-card:hover {
+    transform: translateX(8px);
+}
+
+.team-card:hover .team-avatar {
+    box-shadow: 0 0 30px var(--cyan-glow), 0 0 60px rgba(0, 212, 255, 0.15);
+}
+
+/* ── Staggered reveal animation ── */
+#team .reveal.active .team-card {
+    animation: teamBadgeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+#team .reveal.active .team-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+#team .reveal.active .team-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+#team .reveal.active .team-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+@keyframes teamBadgeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+        filter: blur(6px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@media (max-width: 960px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}

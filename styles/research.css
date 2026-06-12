@@ -1,0 +1,58 @@
+/* ═══ RESEARCH — Terminal Readout Cards ═══ */
+.research-list { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
+
+.research-card {
+    background: var(--bg-deep);
+    border: 1px solid rgba(0,255,136,.08);
+    border-left: 3px solid var(--neon);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all .5s cubic-bezier(.23,1,.32,1);
+}
+.research-card::before,
+.research-tag,
+.research-venue {
+    font-family: var(--font-mono);
+}
+
+.research-card::before {
+    content: '>';
+    position: absolute; top: 2rem; left: 1rem;
+    color: var(--neon); font-size: .9rem; font-weight: 700;
+    animation: cursorBlink 1s step-end infinite;
+}
+@keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.research-card:hover {
+    border-color: rgba(0,255,136,.25);
+    background: rgba(0,255,136,.03);
+    transform: translateX(8px);
+    box-shadow: -4px 0 30px rgba(0,255,136,.08);
+}
+
+.research-tag {
+    font-size: .72rem; color: var(--neon);
+    font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: .8rem;
+}
+.research-title {
+    font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+    color: #fff; margin-bottom: .6rem; line-height: 1.3;
+}
+.research-authors { color: var(--text-muted); font-size: .9rem; margin-bottom: .5rem; }
+.research-venue {
+    font-size: .78rem; color: var(--text-dim);
+    padding: .3rem .7rem; background: rgba(0,255,136,.06);
+    border-radius: var(--radius-sm); display: inline-block;
+}
+
+/* Animation: typewriter slide-in */
+#research .reveal { opacity: 0; transform: translateX(-40px); transition: all .8s cubic-bezier(.16,1,.3,1); }
+#research .reveal.active { opacity: 1; transform: translateX(0); }
+#research .reveal.active .research-card { animation: terminalPrint .6s cubic-bezier(.23,1,.32,1) both; }
+#research .reveal.active .research-card:nth-child(2) { animation-delay: .2s; }
+@keyframes terminalPrint {
+    0% { opacity: 0; transform: translateX(-30px); clip-path: inset(0 100% 0 0); }
+    100% { opacity: 1; transform: translateX(0); clip-path: inset(0 0 0 0); }
+}

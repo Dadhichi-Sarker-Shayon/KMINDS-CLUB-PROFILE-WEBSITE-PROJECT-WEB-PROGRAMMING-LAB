@@ -1,52 +1,64 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>K-MiNDS | Machine Intelligence & Data Science</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/base.css" />
-  </head>
-  <body>
-    <!-- Honeycomb Background Canvas -->
-    <canvas id="honeycomb-bg"></canvas>
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
-    <!-- NAVIGATION -->
-    <nav>
-      <a href="#hero" class="nav-logo">
-        <div class="nav-logo-mark"></div>
-        <span class="nav-logo-text">K-Mi<span>N</span>DS</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#team">People</a></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
-      <a href="#about" class="nav-cta">Join Us</a>
-    </nav>
-    <!-- HERO -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K-MiNDS | Machine Intelligence & Data Science — KUET</title>
+  <meta name="description" content="K-MiNDS is KUET's premier AI/ML community empowering students through courses, projects, and research in machine learning and data science." />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/hero.css" />
+  <link rel="stylesheet" href="styles/about.css" />
+  <link rel="stylesheet" href="styles/courses.css" />
+  <link rel="stylesheet" href="styles/events.css" />
+  <link rel="stylesheet" href="styles/team.css" />
+  <link rel="stylesheet" href="styles/blog.css" />
+  <link rel="stylesheet" href="styles/projects.css" />
+  <link rel="stylesheet" href="styles/moderators.css" />
+  <link rel="stylesheet" href="styles/alumni.css" />
+  <link rel="stylesheet" href="styles/research.css" />
+  <link rel="stylesheet" href="styles/moments.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-mark"></div>
+      <span>K-MiNDS</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+    <a href="join.html" class="btn-primary"><span>Join Us</span></a>
+  </nav>
+
+  <!-- SECTIONS -->
+  <main>
     <div id="section-hero" data-include="hero"></div>
-    <!-- ABOUT -->
     <div id="section-about" data-include="about"></div>
-
-    <!-- COURSES -->
     <div id="section-courses" data-include="courses"></div>
-
-    <!-- EVENTS -->
-    <div id="section-events" data-include="events"></div>
-
-    <!-- TEAM -->
+    <div id="section-projects" data-include="projects"></div>
+    <div id="section-research" data-include="research"></div>
+    <div id="section-moderators" data-include="moderators"></div>
     <div id="section-team" data-include="team"></div>
-
-    <!-- BLOG -->
+    <div id="section-alumni" data-include="alumni"></div>
+    <div id="section-events" data-include="events"></div>
+    <div id="section-moments" data-include="moments"></div>
     <div id="section-blog" data-include="blog"></div>
-    <script src="loader.js"></script>
-  </body>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="section-footer" data-include="footer"></div>
+
+  <script src="scripts/loader.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+
 </html>

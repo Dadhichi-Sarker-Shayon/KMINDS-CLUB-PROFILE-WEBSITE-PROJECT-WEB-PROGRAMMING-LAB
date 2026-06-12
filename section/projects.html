@@ -1,46 +1,65 @@
-<section id="projects" class="section-centered">
-    <div class="container">
-        <div class="reveal">
-            <div class="section-label">Our Impact</div>
-            <h2 class="section-title">Open Source & Research Projects</h2>
-            <p class="section-subtitle">Practical applications of AI developed by our community members.</p>
+<section id="projects" class="section-centered projects-outer">
+    <div class="projects-layout">
+        <div class="projects-info">
+            <div class="section-label reveal">Our Impact</div>
+            <h2 class="section-title reveal">Open Source &amp;<br>Research Projects</h2>
+            <p class="projects-para reveal">Practical applications of AI developed by our community members — from computer vision to NLP and medical AI.</p>
+            <p class="projects-para reveal">Each project represents our mission to apply cutting-edge machine intelligence to real problems.</p>
         </div>
-        <div class="projects-grid reveal">
-            <div class="project-card">
-                <div class="project-img"></div>
-                <div class="project-content">
-                    <div class="project-type">Computer Vision</div>
-                    <h3 class="project-title">Bangla OCR System</h3>
-                    <p class="project-desc">A high-accuracy OCR system for printed Bangla text using attention-based CNN-LSTM architectures.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Demo</a>
+        <div class="projects-deck-area">
+            <div class="cards-stack-wrapper" id="cardsStack">
+                <div class="project-card" data-index="0">
+                    <div class="project-card-body">
+                        <div class="project-card-type">Computer Vision</div>
+                        <h3 class="project-card-title">Bangla OCR System</h3>
+                        <p class="project-card-desc">High-accuracy OCR for printed Bangla text using attention-based CNN-LSTM architectures.</p>
+                        <div class="project-card-links">
+                            <a href="https://github.com/vallagenakisu/KUET-MINDS" class="project-card-link">GitHub</a>
+                            <a href="https://demo.com" class="project-card-link">Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-index="1">
+                    <div class="project-card-body">
+                        <div class="project-card-type">NLP</div>
+                        <h3 class="project-card-title">Sentiment Analysis for Banglish</h3>
+                        <p class="project-card-desc">Fine-tuned BERT model for mixed Bengali-English social media sentiment analysis.</p>
+                        <div class="project-card-links">
+                            <a href="https://github.com/vallagenakisu/KUET-MINDS" class="project-card-link">GitHub</a>
+                            <a href="https://arxiv.org/abs/2304.01234" class="project-card-link">Paper</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-index="2">
+                    <div class="project-card-body">
+                        <div class="project-card-type">Medical AI</div>
+                        <h3 class="project-card-title">Retinopathy Detection</h3>
+                        <p class="project-card-desc">Automated diabetic retinopathy screening using fundus images — 97.3% accuracy.</p>
+                        <div class="project-card-links">
+                            <a href="https://github.com/vallagenakisu/KUET-MINDS" class="project-card-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-index="3">
+                    <div class="project-card-body">
+                        <div class="project-card-type">Generative AI</div>
+                        <h3 class="project-card-title">Bangla Diffusion</h3>
+                        <p class="project-card-desc">Latent diffusion models fine-tuned on South Asian art styles and cultural contexts.</p>
+                        <div class="project-card-links">
+                            <a href="https://github.com/vallagenakisu/KUET-MINDS" class="project-card-link">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-img"></div>
-                <div class="project-content">
-                    <div class="project-type">NLP</div>
-                    <h3 class="project-title">Sentiment Analysis for Banglish</h3>
-                    <p class="project-desc">Fine-tuned BERT model specifically for understanding sentiment in mixed Bengali-English social media comments.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Paper</a>
-                    </div>
+            <div class="projects-controls" aria-label="Project carousel controls">
+                <div class="projects-counter">
+                    <span id="projectsCounterCurrent">01</span>
+                    <span class="projects-counter-total">/ 00</span>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img"></div>
-                <div class="project-content">
-                    <div class="project-type">Medical AI</div>
-                    <h3 class="project-title">Retinopathy Detection</h3>
-                    <p class="project-desc">Automated screening system for diabetic retinopathy using fundus images and ensemble learning.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                    </div>
-                </div>
+                <div class="projects-dots" id="projectsDots"></div>
             </div>
         </div>
     </div>
 </section>
+
+<script src="scripts/projects.js"></script>

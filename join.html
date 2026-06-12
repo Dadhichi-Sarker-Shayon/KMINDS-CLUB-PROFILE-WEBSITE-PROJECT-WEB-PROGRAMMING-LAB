@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K-MiNDS | Join Us</title>
+  <meta name="description" content="Apply to join K-MiNDS and be part of KUET's AI/ML community." />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/join.css" />
+</head>
+
+<body>
+  <nav>
+    <a href="skeleton.html#hero" class="nav-logo">
+      <div class="nav-logo-mark"></div>
+      <span>K-MiNDS</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="skeleton.html#about">About</a></li>
+      <li><a href="skeleton.html#courses">Courses</a></li>
+      <li><a href="skeleton.html#projects">Projects</a></li>
+      <li><a href="skeleton.html#research">Research</a></li>
+      <li><a href="skeleton.html#team">Team</a></li>
+      <li><a href="skeleton.html#blog">Blog</a></li>
+    </ul>
+    <a href="join.html" class="btn-primary"><span>Join Us</span></a>
+  </nav>
+
+  <main>
+    <section id="join" class="join-section">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Join K-MiNDS</div>
+          <h2 class="section-title">Apply to Join the Community</h2>
+          <p class="section-subtitle">
+            Tell us about yourself. We will reach out with next steps.
+          </p>
+        </div>
+
+        <form id="join-form" class="join-form reveal" novalidate>
+          <div class="join-grid">
+            <div class="join-field">
+              <label for="join-name">Full Name</label>
+              <input type="text" id="join-name" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="join-field">
+              <label for="join-email">Email</label>
+              <input type="email" id="join-email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="join-field">
+              <label for="join-phone">Phone</label>
+              <input type="tel" id="join-phone" name="phone" placeholder="+8801XXXXXXXXX" required />
+            </div>
+            <div class="join-field">
+              <label for="join-department">Department</label>
+              <input type="text" id="join-department" name="department" placeholder="CSE" required />
+            </div>
+            <div class="join-field">
+              <label for="join-roll">Roll</label>
+              <input type="text" id="join-roll" name="roll" placeholder="1907001" required />
+            </div>
+            <div class="join-field">
+              <label for="join-section">Section</label>
+              <input type="text" id="join-section" name="section" placeholder="A" required />
+            </div>
+          </div>
+
+          <div class="join-actions">
+            <button type="submit" class="btn-primary">Submit Application</button>
+            <p id="join-status" class="join-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/app.js"></script>
+</body>
+
+</html>
