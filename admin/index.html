@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-MiNDS Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= LOGIN VIEW ================= -->
+    <div id="login-view" class="hidden">
+        <div class="login-box">
+            <h2>K-MiNDS</h2>
+            <p>Admin Control Panel</p>
+            <div id="login-message"></div>
+            <form id="login-form">
+                <input type="password" id="admin-password" placeholder="Enter Admin Password" required autofocus>
+                <button type="submit">Unlock Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= DASHBOARD VIEW ================= -->
+    <div id="dashboard-view" class="hidden">
+        <aside class="sidebar">
+            <div class="brand">K-MiNDS Admin</div>
+            <nav>
+                <a href="#dashboard" class="active">Dashboard</a>
+                <a href="#pending">Pending Requests</a>
+                <a href="#members">Club Members</a>
+            </nav>
+            <button id="logout-btn" class="logout">Logout</button>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1 id="dashboard">System Overview</h1>
+                <div class="user-info">Logged in as Administrator</div>
+            </header>
+
+            <div class="content">
+                <div id="alert-container"></div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Members</h3>
+                        <div class="value" id="stat-members">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Requests</h3>
+                        <div class="value warning" id="stat-pending">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Rejected Applications</h3>
+                        <div class="value muted" id="stat-rejected">0</div>
+                    </div>
+                </div>
+
+                <div class="section-header" id="pending">
+                    <h2>Pending Join Requests</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Applicant Name</th>
+                                <th>Contact Info</th>
+                                <th>Academics</th>
+                                <th>Status</th>
+                                <th>Date Applied</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pending-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section-header" id="members">
+                    <h2>Approved Members</h2>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Member Name</th>
+                                <th>Contact Info</th>
+                                <th>Academics</th>
+                                <th>Status</th>
+                                <th>Member Since</th>
+                                <th>Administration</th>
+                            </tr>
+                        </thead>
+                        <tbody id="members-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <footer style="margin-top: 3rem; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+                    &copy; 2026 K-MiNDS. Admin Dashboard System. HTML/JS Frontend.
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>

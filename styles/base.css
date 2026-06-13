@@ -230,17 +230,12 @@ nav {
 .nav-logo-mark {
     width: 32px;
     height: 32px;
-    background: linear-gradient(135deg, var(--cyan), var(--purple));
     border-radius: 8px;
-    position: relative;
-}
-
-.nav-logo-mark::after {
-    content: '';
-    position: absolute;
-    inset: 3px;
-    background: var(--bg-void);
-    border-radius: 5px;
+    object-fit: cover;
+    display: block;
+    flex: 0 0 32px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-links {
